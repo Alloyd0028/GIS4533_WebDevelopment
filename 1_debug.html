@@ -59,7 +59,10 @@
     <!-- start of our JavaScript code -->
     <script>
         // Initialize the map
-        let map = L.map('mapElement')
+
+        // Fixed! the map div element's ID did not match
+        // The ID provided the Leaflet map
+        let map = L.map('map')
         // Center the map on UMD campus, and set the zoom level
         map.setView([-92.08, 46.82], 15);
         
