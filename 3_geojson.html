@@ -73,6 +73,25 @@
             maxZoom: 19,
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
+
+        // 2. Add GeoJSON of Attendance Areas to the map
+
+        //fetch geojson file
+        fetch("duluth_school_attendance_areas.json")
+            // once we fetch the geojson we need to convert then response into a json format
+            .then(function (response) {
+                console.log(response.json())
+                // Pass along the kson to the next function
+                return response.json()
+            })
+            // take the json data t(our geojson's file data)
+            // and create a leaflet layer based on that geojson
+            then(function(geojsonData) {
+                console.log('the geojson data', geojsonData)
+                L.geoJSON(geojsonData).addto(map)
+            })
+
+        //L.geoJSON(geojsonData)
     </script>
 </body>
 </html>
