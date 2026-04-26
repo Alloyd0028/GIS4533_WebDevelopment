@@ -10,7 +10,7 @@
     - Each marker should have a popup that includes the name of the location and a fun fact about it.
     - At least one of the markers should have an image or video in the popup.
     - You can remove the existing marker for the UMD campus if you want.
-    3. Center the map on Duluth (change the zoom level as well if you want).
+    X 3. Center the map on Duluth (change the zoom level as well if you want).
     X 4. Modify the title and subtitle to reflect your name and the theme of your map.
     5. Add a paragraph to the paragraph describing your map and the locations you added.
     6. Modify the style of each of the elements (header, paragraph, and map) to your liking.
@@ -58,15 +58,15 @@
             padding-right: 100px; /* This stops the paragraph text from hugging the edge of the page. I like this declaration. */
         }
         .pop-ups{
-            font-family: "Georgia"; font-weight: lighter; color: maroon;
-            p{font-family: "Georgia"; font-weight:lighter; color:maroon}
-            h1{font-family: "Georgia"; font-weight: lighter; color: maroon}
-            h2{font-family: "Georgia"; font-weight: lighter; color: maroon}
-            h3{font-family: "Georgia"; font-weight: lighter; color: maroon}
-            h4{font-family: "Georgia"; font-weight: lighter; color: maroon}
-            b{font-family: "Georgia"; font-weight: lighter; color: maroon}
-            em{font-family: "Geogria"; font-weight: lighter; color: maroon}
-            br{font-family: "Georgia"; font-weight: lighter; color: maroon}
+            font-family: "Georgia"; font-weight: lighter; color: black;
+            p{font-family: "Georgia"; font-weight:lighter; color:black}
+            h1{font-family: "Georgia"; font-weight: lighter; color: black}
+            h2{font-family: "Georgia"; font-weight: lighter; color: black}
+            h3{font-family: "Georgia"; font-weight: lighter; color: black}
+            h4{font-family: "Georgia"; font-weight: lighter; color: black}
+            b{font-family: "Georgia"; font-weight: lighter; color: black}
+            em{font-family: "Geogria"; font-weight: lighter; color: black}
+            br{font-family: "Georgia"; font-weight: lighter; color: black}
         }
     </style>
 </head>
@@ -100,7 +100,7 @@
     
     <script>
         // Initialize the map, center it on UMD campus, and set the zoom level
-        const map = L.map('map').setView([46.82, -92.08], 13);
+        const map = L.map('map').setView([46.79, -92.1], 11.5);
 
         // Add OpenStreetMap tiles
         const tiles = L.tileLayer('https://tile.openstreetmap.bzh/ca/{z}/{x}/{y}.png', {
@@ -110,12 +110,12 @@
 
         // Add a marker for the UMD campus
         const marker = L.marker([46.82, -92.085]).addTo(map);
-        // Added a marker for (A Location)
-        const marker2 = L.marker([46.82, -92.05]).addTo(map);
-        // Added third marker for 
-        const marker3 = L.marker([46.83, -92.05]).addTo(map);
-        // Added forth marker for
-        const marker4 = L.marker([46.84, -92.05]).addTo(map);
+        // Added a marker for Keene Creek
+        const marker2 = L.marker([46.73739, -92.17714]).addTo(map);
+        // Added third marker for Enger Tower
+        const marker3 = L.marker([46.77608914559157, -92.12496378241566]).addTo(map);
+        // Added forth marker for the William A. Irving Museum
+        const marker4 = L.marker([46.782594797649026, -92.09712775194882]).addTo(map);
 
         //the HTML Content for my first popup
         const htmlContentFirst = `
@@ -128,7 +128,43 @@
             <iframe width="250" height="150" src="https://www.youtube.com/embed/4slI-YgjY4A?si=e2Vxdgk4cHLNqjfj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
         `;
-        marker.bindPopup("<b>University of Minnesota Duluth</b><br>A great place to learn about GIS!" + htmlContentFirst).openPopup();
+        marker.bindPopup("<b>University of Minnesota Duluth</b><br>A great place to learn about GIS!" + htmlContentFirst);
+        //HTML Content for Second pop-up
+        const htmlContentSecond = `
+        <div class="pop-ups">
+            <h3>Arial Image of Univeristy of Minnesota, Duluth </h3>
+            <img width=300 height=150 src="https://cdn.forumcomm.com/dims4/default/c050dcf/2147483647/strip/true/crop/860x484+0+0/resize/1894x1066!/quality/90/?url=https%3A%2F%2Ffcc-cue-exports-brightspot.s3.us-west-2.amazonaws.com%2Fduluthnewstribune%2Fbinary%2F18sep15_0254_0_0_binary_1697692.jpg">
+            <br>
+            <em> Photo Credit: UMD Duluth</em>
+            <p>Michigan vs UMD Duluth Hockey Game Highlights:</p>
+            <iframe width="250" height="150" src="https://www.youtube.com/embed/4slI-YgjY4A?si=e2Vxdgk4cHLNqjfj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        `;
+        marker2.bindPopup("<b>University of Minnesota Duluth</b><br>A great place to learn about GIS!" + htmlContentSecond);
+                //HTML Content for Third pop-up
+        const htmlContentThird = `
+        <div class="pop-ups">
+            <h3>Arial Image of Univeristy of Minnesota, Duluth </h3>
+            <img width=300 height=150 src="https://cdn.forumcomm.com/dims4/default/c050dcf/2147483647/strip/true/crop/860x484+0+0/resize/1894x1066!/quality/90/?url=https%3A%2F%2Ffcc-cue-exports-brightspot.s3.us-west-2.amazonaws.com%2Fduluthnewstribune%2Fbinary%2F18sep15_0254_0_0_binary_1697692.jpg">
+            <br>
+            <em> Photo Credit: UMD Duluth</em>
+            <p>Michigan vs UMD Duluth Hockey Game Highlights:</p>
+            <iframe width="250" height="150" src="https://www.youtube.com/embed/4slI-YgjY4A?si=e2Vxdgk4cHLNqjfj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        `;
+        marker3.bindPopup("<b>University of Minnesota Duluth</b><br>A great place to learn about GIS!" + htmlContentThird);
+        //HTML Content for Fourth pop-up
+        const htmlContentFourth = `
+        <div class="pop-ups">
+            <h3>Arial Image of Univeristy of Minnesota, Duluth </h3>
+            <img width=300 height=150 src="https://cdn.forumcomm.com/dims4/default/c050dcf/2147483647/strip/true/crop/860x484+0+0/resize/1894x1066!/quality/90/?url=https%3A%2F%2Ffcc-cue-exports-brightspot.s3.us-west-2.amazonaws.com%2Fduluthnewstribune%2Fbinary%2F18sep15_0254_0_0_binary_1697692.jpg">
+            <br>
+            <em> Photo Credit: UMD Duluth</em>
+            <p>Michigan vs UMD Duluth Hockey Game Highlights:</p>
+            <iframe width="250" height="150" src="https://www.youtube.com/embed/4slI-YgjY4A?si=e2Vxdgk4cHLNqjfj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        `;
+        marker4.bindPopup("<b>University of Minnesota Duluth</b><br>A great place to learn about GIS!" + htmlContentFourth);
     </script>
 </body>
 </html>
