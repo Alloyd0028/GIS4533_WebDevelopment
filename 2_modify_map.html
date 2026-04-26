@@ -11,7 +11,7 @@
     - At least one of the markers should have an image or video in the popup.
     - You can remove the existing marker for the UMD campus if you want.
     3. Center the map on Duluth (change the zoom level as well if you want).
-    4. Modify the title and subtitle to reflect your name and the theme of your map.
+    X 4. Modify the title and subtitle to reflect your name and the theme of your map.
     5. Add a paragraph to the paragraph describing your map and the locations you added.
     6. Modify the style of each of the elements (header, paragraph, and map) to your liking.
     - At a minimum, remove the inline style on the map div and add your own CSS to the style tag in the head of the document.
@@ -36,39 +36,46 @@
         #map{
             width: 100%;
             height: 75%;
+            border: 2px solid darksalmon; /* Added border so the map is more visible */
         }
-        /* NEW classes for the heading, inlcuidng a new description for .header*/
+        /* NEW classes for the heading, inlcuidng a new description for .header */
         .header{
         display: flex;
         justify-content: space-between;
         align-items: center;
-    }
+        }
         .heading-title{
             display: flex;
             flex-direction: column;
         }
         .heading-side{
+             ul{
+                 list-style-type: circle;
+                }
             display: flex;
             justify-content: flex-end;
-            padding-right: 50px; /* This stops the paragraph text from hugging the edge of the page. I like this declaration. */
-
+            flex-direction: column;
+            padding-right: 100px; /* This stops the paragraph text from hugging the edge of the page. I like this declaration. */
         }
     </style>
 </head>
 <body>
     <!-- Header at the top of the page -->  
     <div class="header"><style> h1{font-family: "Cursive";font-weight: bolder; color:lightsalmon} 
-    h3{font-family:"Cursive";font-weight: 500; color: darksalmon}
-    p{font-family: "Cursive"; font-weight: bolder; color: orange;}</style>
+    h3{font-family:"Cursive";font-weight: 500; color: darksalmon}</style>
         <div class="heading-title">
         <h1>Alex's Favorite Places in Duluth, MN</h1>
         <h3>by: Alexander Johnson</h3> 
         </div>
-        <div class="heading-side">
-            <h1></h1> 
-            <p>Hi! This text is on the right</p>
-            <p></p>
-            <p></p>
+        <div class="heading-side"><style> p{font-family: "Cursive"; font-weight: bold; color: tomato;}
+            li{font-family: "Cursive"; font-weight: lighter; color: orangered;}
+        </style>
+            <p>Here are some of my favorite places around Duluth, MN:</p> 
+            <ul>
+                <li>Hi! This text is on the right</li>
+                <li>INSERT TEXT HERE</li>
+                <li>INSERT TEXT HERE</li>
+            </ul>
         </div>
     </div>
     <!-- Added some style to my Header above -->
