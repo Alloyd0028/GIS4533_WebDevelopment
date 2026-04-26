@@ -57,6 +57,17 @@
             flex-direction: column;
             padding-right: 100px; /* This stops the paragraph text from hugging the edge of the page. I like this declaration. */
         }
+        .pop-ups{
+            font-family: "Georgia"; font-weight: lighter; color: maroon;
+            p{font-family: "Georgia"; font-weight:lighter; color:maroon}
+            h1{font-family: "Georgia"; font-weight: lighter; color: maroon}
+            h2{font-family: "Georgia"; font-weight: lighter; color: maroon}
+            h3{font-family: "Georgia"; font-weight: lighter; color: maroon}
+            h4{font-family: "Georgia"; font-weight: lighter; color: maroon}
+            b{font-family: "Georgia"; font-weight: lighter; color: maroon}
+            em{font-family: "Geogria"; font-weight: lighter; color: maroon}
+            br{font-family: "Georgia"; font-weight: lighter; color: maroon}
+        }
     </style>
 </head>
 <body>
@@ -73,6 +84,7 @@
             <p>Here are some of my favorite places around Duluth, MN:</p> 
             <ul>
                 <li>Hi! This text is on the right</li>
+                <li>INSERT TEXT HERE</li>
                 <li>INSERT TEXT HERE</li>
                 <li>INSERT TEXT HERE</li>
             </ul>
@@ -99,20 +111,24 @@
         // Add a marker for the UMD campus
         const marker = L.marker([46.82, -92.085]).addTo(map);
         // Added a marker for (A Location)
-        marker = L.marker([46.82, -92.05]).addTo(map);
+        const marker2 = L.marker([46.82, -92.05]).addTo(map);
+        // Added third marker for 
+        const marker3 = L.marker([46.83, -92.05]).addTo(map);
+        // Added forth marker for
+        const marker4 = L.marker([46.84, -92.05]).addTo(map);
 
-        //the HTML Content for my popup
-        const htmlContent = `
-        <div>
+        //the HTML Content for my first popup
+        const htmlContentFirst = `
+        <div class="pop-ups">
             <h3>Arial Image of Univeristy of Minnesota, Duluth </h3>
-            <img width=300 height=150 src="https://cdn.forumcomm.com/dims4/default/c050dcf/2147483647/strip/true/crop/860x484+0+0/resize/1894x1066!/quality/90/?url=https%3A%2F%2Ffcc-cue-exports-brightspot.s3.us-west-2.amazonaws.com%2Fduluthnewstribune%2Fbinary%2F18sep15_0254_0_0_binary_1697692.jpg"
+            <img width=300 height=150 src="https://cdn.forumcomm.com/dims4/default/c050dcf/2147483647/strip/true/crop/860x484+0+0/resize/1894x1066!/quality/90/?url=https%3A%2F%2Ffcc-cue-exports-brightspot.s3.us-west-2.amazonaws.com%2Fduluthnewstribune%2Fbinary%2F18sep15_0254_0_0_binary_1697692.jpg">
             <br>
             <em> Photo Credit: UMD Duluth</em>
             <p>Michigan vs UMD Duluth Hockey Game Highlights:</p>
             <iframe width="250" height="150" src="https://www.youtube.com/embed/4slI-YgjY4A?si=e2Vxdgk4cHLNqjfj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
         `;
-        marker.bindPopup("<b>University of Minnesota Duluth</b><br>A great place to learn about GIS!" + htmlContent).openPopup();
+        marker.bindPopup("<b>University of Minnesota Duluth</b><br>A great place to learn about GIS!" + htmlContentFirst).openPopup();
     </script>
 </body>
 </html>
