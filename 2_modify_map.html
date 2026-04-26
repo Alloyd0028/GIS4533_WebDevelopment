@@ -31,24 +31,49 @@
     
     <style>
         body{
-            width: 2000px;
-            height: 1000px;
+            height: 1000px; /* Don't want a width otherwise it makes the page too wide. */
         }
         #map{
-            width: 80%;
-            height: 80%;
+            width: 100%;
+            height: 75%;
+        }
+        /* NEW classes for the heading, inlcuidng a new description for .header*/
+        .header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+        .heading-title{
+            display: flex;
+            flex-direction: column;
+        }
+        .heading-side{
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 50px; /* This stops the paragraph text from hugging the edge of the page. I like this declaration. */
+
         }
     </style>
 </head>
 <body>
     <!-- Header at the top of the page -->  
     <div class="header"><style> h1{font-family: "Cursive";font-weight: bolder; color:lightsalmon} 
-    h3{font-family:"Cursive";font-weight: 500; color: burlywood;}</style>
+    h3{font-family:"Cursive";font-weight: 500; color: darksalmon}
+    p{font-family: "Cursive"; font-weight: bolder; color: orange;}</style>
+        <div class="heading-title">
         <h1>Alex's Favorite Places in Duluth, MN</h1>
-        <h3>by: Alexander Johnson</h3>
+        <h3>by: Alexander Johnson</h3> 
+        </div>
+        <div class="heading-side">
+            <h1></h1> 
+            <p>Hi! This text is on the right</p>
+            <p></p>
+            <p></p>
+        </div>
     </div>
-    <!-- Added some style to my Header^ -->
-    
+    <!-- Added some style to my Header above -->
+    <!-- Also added paragraph styling and positioned them to the right of the page-->
+
     <div id="map"></div>
 
     <!-- Leaflet JavaScript library -->
