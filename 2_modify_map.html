@@ -13,7 +13,7 @@
     X 3. Center the map on Duluth (change the zoom level as well if you want).
     X 4. Modify the title and subtitle to reflect your name and the theme of your map.
     5. Add a paragraph to the paragraph describing your map and the locations you added.
-    6. Modify the style of each of the elements (header, paragraph, and map) to your liking.
+    X 6. Modify the style of each of the elements (header, paragraph, and map) to your liking.
     - At a minimum, remove the inline style on the map div and add your own CSS to the style tag in the head of the document.
 
     AI use: you can ask questions of AI (such as "explain what this line of code does" or "how do I create a popup in Leaflet?") 
@@ -57,7 +57,7 @@
             flex-direction: column;
             padding-right: 100px; /* This stops the paragraph text from hugging the edge of the page. I like this declaration. */
         }
-        .pop-ups{
+        .pop-ups{ /* Might not be necessary, but keeps the text black (It was shades of orange before adding this due to the <body> declarations) */
             font-family: "Georgia"; font-weight: lighter; color: black;
             p{font-family: "Georgia"; font-weight:lighter; color:black}
             h1{font-family: "Georgia"; font-weight: lighter; color: black}
@@ -137,7 +137,7 @@
             <em> Photo Credit: City of Duluth</em>
             </div>
         `;
-        marker2.bindPopup("<b>University of Minnesota Duluth</b><br>A great place to learn about GIS!" + htmlContentSecond);
+        marker2.bindPopup("<b>Keene Creek Park</b><br>A pleasant little park in West Duluth. There's a dog park, playground, and trails!" + htmlContentSecond);
                 //HTML Content for Third pop-up (Enger Tower)
         const htmlContentThird = `
         <div class="pop-ups">
@@ -146,7 +146,7 @@
             <br>
             <em> Photo Credit: City of Duluth</em>
         `;
-        marker3.bindPopup("<b>University of Minnesota Duluth</b><br>A great place to learn about GIS!" + htmlContentThird);
+        marker3.bindPopup("<b>Enger Tower</b><br> The highlight of Enger Park with amazing views from the top, just don't climb the tower on windy days!" + htmlContentThird);
         //HTML Content for Fourth pop-up (William A. Irving)
         const htmlContentFourth = `
         <div class="pop-ups">
@@ -156,7 +156,7 @@
             <em> Photo Credit: Canal Park</em>
         </div>
         `;
-        marker4.bindPopup("<b>William A. Irving</b><br>One of Duluth's most important historical museums. " + htmlContentFourth);
+        marker4.bindPopup("<b>William A. Irving</b><br>One of Duluth's most important historical musuems/landmarks. " + htmlContentFourth);
     </script>
 </body>
 </html>
