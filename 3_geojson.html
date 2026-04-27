@@ -20,7 +20,7 @@
             - Further simplify the data by specifying a coordinate precision in the export command line options
                  by typing in precision=0.001
 
-    2. Add GeoJSON of Attendance Areas to the map
+    X 2. Add GeoJSON of Attendance Areas to the map
     Make sure to credit the source of the data by adding an attribution for it to the map.
         - Leaflet GeoJSON tutorial: https://leafletjs.com/examples/geojson/
         - GeoJSON reference: https://geojson.org/
@@ -51,15 +51,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Most Basic Web Map</title>
+    <title>Alexander Johnson Duluth Schools Web Map Assignment 3</title>
     
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     
-    <style></style>
+    <style>
+        body{
+            display: flex;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+            gap: 30px;
+        }
+        #map{
+            justify-content: flex-end;
+            width: 65%;
+            height: 100vh;
+            flex: 1;
+        }
+        .text{
+            align-items: left;
+            flex-direction: column;
+
+        }
+
+    </style>
 </head>
 <body>
-    <div id="map" style="width: 600px; height: 400px;"></div>
+    <!-- STYLING FOR ELEMENTS IS LOCATED ABOVE! -->
+    <div class="text"> 
+        <h1>Duluth School Attendance Areas</h1>
+
+    </div>
+
+    <div id="map"></div>
+
     
     <!-- Leaflet JavaScript -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
