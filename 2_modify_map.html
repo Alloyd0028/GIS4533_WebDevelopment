@@ -12,7 +12,7 @@
     - You can remove the existing marker for the UMD campus if you want.
     X 3. Center the map on Duluth (change the zoom level as well if you want).
     X 4. Modify the title and subtitle to reflect your name and the theme of your map.
-    5. Add a paragraph to the paragraph describing your map and the locations you added.
+    X 5. Add a paragraph to the paragraph describing your map and the locations you added.
     X 6. Modify the style of each of the elements (header, paragraph, and map) to your liking.
     - At a minimum, remove the inline style on the map div and add your own CSS to the style tag in the head of the document.
 
@@ -32,23 +32,36 @@
     <style>
         body{
             height: 1000px; /* Don't want a width otherwise it makes the page too wide. */
+
         }
         #map{
             width: 100%;
             height: 75%;
-            border: 2px solid darksalmon; /* Added border so the map is more visible */
+            border: 3px solid darksalmon; /* Added border so the map is more visible */
         }
         /* NEW classes for the heading, inlcuidng a new description for .header */
         .header{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         .heading-title{
+            h1{font-family: "Cursive";
+               font-weight: bolder;
+               color:lightsalmon} 
+            h3{font-family:"Cursive";
+               font-weight: 500;
+               color: lightsalmon} 
+            p{font-family: "Cursive";
+              font-weight: light; 
+              color: tomato;
+              margin: 0;}
             display: flex;
             flex-direction: column;
         }
         .heading-side{
+            p{font-family: "Cursive"; font-weight: bold; color: tomato;}
+            li{font-family: "Cursive"; font-weight: lighter; color: orangered;}
              ul{
                  list-style-type: circle;
                 }
@@ -69,29 +82,27 @@
             br{font-family: "Georgia"; font-weight: lighter; color: black}
         }
 
+
         
     </style>
 </head>
 <body>
     <!-- Header at the top of the page -->  
-    <div class="header"><style> h1{font-family: "Cursive";font-weight: bolder; color:lightsalmon} 
-    h3{font-family:"Cursive";font-weight: 500; color: darksalmon} 
-    p{font-family: "Cursive"; font-weight: light; color: tomato; margin: 0;}</style>
+    <div class="header">
         <div class="heading-title">
         <h1>Alex's Favorite Places in Duluth, MN</h1>
         <h3>by: Alexander Johnson</h3> 
         <p>I added markers for my favorite places in Duluth, MN, which are the UMD campus, Keene Creek Park, the William A. Irving, and Enger Tower.</p>
         <p>I chose these locations because they are public places I enjoy being at when I'm in Duluth, usually with my friends or family.</p>
+        <p>Each location has a picture and small description about the place.</p>
         </div>
-        <div class="heading-side"><style> p{font-family: "Cursive"; font-weight: bold; color: tomato;}
-            li{font-family: "Cursive"; font-weight: lighter; color: orangered;}
-        </style>
-            <p>Here are some of my favorite places around Duluth, MN:</p> 
+        <div class="heading-side">
+            <p>Here's a list some of my favorite places around Duluth, MN:</p> 
             <ul>
-                <li>Hi! This text is on the right</li>
-                <li>INSERT TEXT HERE</li>
-                <li>INSERT TEXT HERE</li>
-                <li>INSERT TEXT HERE</li>
+                <li>University of Minnesota Duluth</li>
+                <li>Keene Creek Park</li>
+                <li>William A. Irving Museum</li>
+                <li>Enger Tower</li>
             </ul>
         </div>
     </div>
@@ -161,7 +172,7 @@
             <em> Photo Credit: Canal Park</em>
         </div>
         `;
-        marker4.bindPopup("<b>William A. Irving</b><br>One of Duluth's most important historical musuems/landmarks. My Great-Grandfather worked as a Chief Engineer on the William A. Irving when the SS Edmund Fitzgerald went missing. " + htmlContentFourth);
+        marker4.bindPopup("<b>William A. Irving</b><br>One of Duluth's most important historical museums/landmarks. My Great-Grandfather worked as a Chief Engineer on the William A. Irving when the SS Edmund Fitzgerald went missing. " + htmlContentFourth);
     </script>
 </body>
 </html>
