@@ -39,7 +39,7 @@
     
     6. Finishing Up
         - In case it wasn't already obvious, you've created a thematic map. 
-            That means you might need to update your basemap to something more plain and subdued (think figure-ground).
+            X That means you might need to update your basemap to something more plain and subdued (think figure-ground).
         - Also modify the map extent (so you can see all but the large northern attendance areas).
         - Make sure the code is organized and well commented so that someone else can understand what you did and how you did it.
 
@@ -65,6 +65,7 @@
             gap: 30px;
         }
         #map{
+            border: 3px solid black;
             justify-content: flex-end;
             width: 65%;
             height: 100vh;
@@ -92,17 +93,27 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     
     <script>
-        // Initialize the map, center it on UMD campus, and set the zoom level
-        const map = L.map('map').setView([46.82, -92.08], 13);
+        // Initialize the map, and center it on Duluth, zoomed out to see the entire city and northern school districts
+        const map = L.map('map').setView([46.82, -92.08], 11);
 
+        //Adds new basemap that works better for the data visualization
+        //Also had to sign up to Stadia in order to get a API key to use the basemap
+        const tiles = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png?api_key=41db2904-39a2-49ee-a885-c295cf4c2cd6',{
+        minZoom: 0,
+        maxZoom: 20,
+        attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        ext: 'png'
+        }).addTo(map);
+
+        /* Commented out standard Open Stree Map to preserve  it's code in case of future use
         // Add OpenStreetMap tiles
         const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
+        */
 
         // 2. Add GeoJSON of Attendance Areas to the map
-
         //fetch GeoJSON file
         fetch("duluth_school_attendance_areas.json")
             // once we fetch the geojson we need to convert then response into a json format
