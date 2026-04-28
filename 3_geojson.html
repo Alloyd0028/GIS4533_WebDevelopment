@@ -30,17 +30,17 @@
         - To help distinguish the areas from one another consider using a random color generator. 
             - Lots of options are listed here: https://stackoverflow.com/questions/1484506/random-color-generator
 
-    4. Add Popups to GeoJSON
+    X 4. Add Popups to GeoJSON
     Add functionality so that when the user clicks on an attendance area, the schools for that area are listed in the popup.
 
-    5. Add a Layout
+    X 5. Add a Layout
     - Add some HTML and CSS to your web page to complement your map. 
     - At a minimum, this should include a title and subtitle for your map, but feel free to get creative and add some style!
     
     6. Finishing Up
         - In case it wasn't already obvious, you've created a thematic map. 
             X That means you might need to update your basemap to something more plain and subdued (think figure-ground).
-        - Also modify the map extent (so you can see all but the large northern attendance areas).
+        - X Also modify the map extent (so you can see all but the large northern attendance areas).
         - Make sure the code is organized and well commented so that someone else can understand what you did and how you did it.
 
     AI use: you can use AI as much as you like, but make sure to understand and verify the code it generates.
@@ -62,7 +62,7 @@
             margin: 0;
             height: 100%;
             width: 100%;
-            gap: 30px;
+            gap: 5px;
         }
         #map{
             border: 3px solid black;
@@ -71,6 +71,9 @@
             height: 100vh;
             flex: 1;
         }
+        .text p {
+            margin: 4px, 0;
+        }
         .text{
             align-items: left;
             flex-direction: column;
@@ -78,22 +81,30 @@
         .popup-styling{
             color: black;
             font-family: Helveltica;
-
         }
         .popup-title{
             color: crimson;
             font-family: Impact;
-
         }
+    
 
     </style>
 </head>
 <body>
     <!-- STYLING FOR ELEMENTS IS LOCATED ABOVE! -->
     <div class="text"> 
-        <h1>Duluth School Attendance Areas</h1>
+        <h1>Duluth School Attendance Areas</h1> 
+        <h3>By Alexander Johnson</h2>
+        <br>
+        <p><b>Hi!</b> Welcome to my web map of Duluth school districts! </p>
+        <p>Click around and see what schools' districts different locations are in.</p>
+        <p><b>Fun Fact:</b> Bayview Heights in the only Duluth Neighborhood <b>not</b> in the </p>
+            <p>Duluth Public Schools District: It's in Proctor's school district.</p>
+        <p>Data for the map comes from the Minnesota Department of Education.</p>
+        
 
     </div>
+ 
 
     <div id="map"></div>
 
