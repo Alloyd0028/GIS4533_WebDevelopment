@@ -64,8 +64,8 @@
             width: 100%;
             gap: 5px;
         }
-        #map{
-            border: 3px solid black;
+        #map{ /* This is how I manuevered the map to the right side of the page, like in the example. I think it looks good.*/
+            border: 3px solid black; 
             justify-content: flex-end;
             width: 65%;
             height: 100vh;
@@ -80,7 +80,7 @@
         }
         .popup-styling{
             color: black;
-            font-family: Helveltica;
+            font-family: Helvetica;
         }
         .popup-title{
             color: crimson;
@@ -92,6 +92,7 @@
 </head>
 <body>
     <!-- STYLING FOR ELEMENTS IS LOCATED ABOVE! -->
+     <!-- Text that appears on the left side of the page. I bolded important words to make it look better.-->
     <div class="text"> 
         <h1>Duluth School Attendance Areas</h1> 
         <h3>By Alexander Johnson</h2>
@@ -102,9 +103,7 @@
             <p>Duluth Public Schools District: It's in Proctor's school district.</p>
         <p>Data for the map comes from the Minnesota Department of Education.</p>
         
-
     </div>
- 
 
     <div id="map"></div>
 
@@ -154,7 +153,8 @@
                             fillOpacity: 0.4 // fill opacity
                         };
                     },  
-                    // Takes the attributes from the JSON and shows them in the popup.
+                    // Takes the attributes from the json and shows them in the popup
+                    // This is how every district polygon gets it's school names
                     onEachFeature: function(feature, layer) {
                         layer.bindPopup( 
                             "<div class = 'popup-styling'>" +
@@ -168,7 +168,7 @@
                 }).addTo(map); 
             });
             // Random Color Generator 
-            // credits: Stack Overflow User (username unknown)
+            // credits: Stack Overflow User (username unknown/I couldn't find it)
             function getRandomColor() {
                 var letters = '0123456789ABCDEF';
                 var color = '#';
