@@ -74,6 +74,15 @@
         .text{
             align-items: left;
             flex-direction: column;
+        }
+        .popup-styling{
+            color: black;
+            font-family: Helveltica;
+
+        }
+        .popup-title{
+            color: crimson;
+            font-family: Impact;
 
         }
 
@@ -137,9 +146,12 @@
                     // Takes the attributes from the JSON and shows them in the popup.
                     onEachFeature: function(feature, layer) {
                         layer.bindPopup( 
-                            "Elementary School Name: " + "<b>"+ feature.properties.ELEM_NAME + "</b><br>" +
-                            "Middle School Name: " + "<b>"+ feature.properties.MIDD_NAME + "</b><br>" +
-                            "High School Name: " + "<b>"+ feature.properties.HIGH_NAME + "</b>",
+                            "<div class = 'popup-styling'>" +
+                            "<div class = 'popup-title'> School Attendance Areas (By Level)</div><br>" +
+                            "Elementary School: " + "<b>"+ feature.properties.ELEM_NAME + "</b><br>" +
+                            "Middle School: " + "<b>"+ feature.properties.MIDD_NAME + "</b><br>" +
+                            "High School: " + "<b>"+ feature.properties.HIGH_NAME + "</b>",
+                            "</div>",
                         );
                     }
                 }).addTo(map); 
