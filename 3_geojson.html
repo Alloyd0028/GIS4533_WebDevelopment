@@ -124,9 +124,18 @@
             // and create a leaflet layer based on that geojson (Adds it to the map)
             .then(function(geojsonData) {
                 console.log('the geojson data', geojsonData);
-                L.geoJSON(geojsonData).addTo(map)
+                L.geoJSON(geojsonData, {
+                    style: function(feature) {
+                        return {
+                            color: "black",        // border color
+                            weight: 1,            // border thickness
+                            opacity: 1,
+                            fillColor: getRandomColor(),
+                            fillOpacity: 0.6
+                        };
+                    }  
+                }).addTo(map)  
             })
-
             // Random Color Generator 
             // credits: Stack Overflow User (username unknown)
             function getRandomColor() {
