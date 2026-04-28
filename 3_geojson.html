@@ -25,7 +25,7 @@
         - Leaflet GeoJSON tutorial: https://leafletjs.com/examples/geojson/
         - GeoJSON reference: https://geojson.org/
 
-    3. Update GeoJSON Styling
+    X 3. Update GeoJSON Styling
     Create a style function to customize the styling for your Attendance Areas.
         - To help distinguish the areas from one another consider using a random color generator. 
             - Lots of options are listed here: https://stackoverflow.com/questions/1484506/random-color-generator
@@ -127,15 +127,21 @@
                 L.geoJSON(geojsonData, {
                     style: function(feature) {
                         return {
-                            color: "black",        // border color
-                            weight: 1,            // border thickness
-                            opacity: 1,
-                            fillColor: getRandomColor(),
-                            fillOpacity: 0.6
+                            color: "black", // border color
+                            weight: 1,      // border thickness
+                            opacity: 1,     // border opacity
+                            fillColor: getRandomColor(), // calls the random color function
+                            fillOpacity: 0.4 // fill opacity
                         };
-                    }  
-                }).addTo(map)  
-            })
+                    },  
+                    onEachFeature: function(feature, layer) {
+                        layer.bindPopup(
+                            "<b>" + feature.properties.HIGH_NAME + "</b>"
+
+                        );
+                    }
+                }).addTo(map); 
+            });
             // Random Color Generator 
             // credits: Stack Overflow User (username unknown)
             function getRandomColor() {
@@ -151,7 +157,11 @@
                 $("#colorpad").css("background-color", getRandomColor());
                 }
 
-        
+        // Pop ups 
+
+    
+
+
     </script>
 </body>
 </html>
