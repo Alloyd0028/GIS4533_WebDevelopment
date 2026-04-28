@@ -134,10 +134,12 @@
                             fillOpacity: 0.4 // fill opacity
                         };
                     },  
+                    // Takes the attributes from the JSON and shows them in the popup.
                     onEachFeature: function(feature, layer) {
-                        layer.bindPopup(
-                            "<b>" + feature.properties.HIGH_NAME + "</b>"
-
+                        layer.bindPopup( 
+                            "Elementary School Name: " + "<b>"+ feature.properties.ELEM_NAME + "</b><br>" +
+                            "Middle School Name: " + "<b>"+ feature.properties.MIDD_NAME + "</b><br>" +
+                            "High School Name: " + "<b>"+ feature.properties.HIGH_NAME + "</b>",
                         );
                     }
                 }).addTo(map); 
@@ -156,10 +158,6 @@
                 function setRandomColor() {
                 $("#colorpad").css("background-color", getRandomColor());
                 }
-
-        // Pop ups 
-
-    
 
 
     </script>
