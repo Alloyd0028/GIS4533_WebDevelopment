@@ -58,6 +58,42 @@
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
 
+        /*
+        Essentially a copy/paste of Step 2 from Assigment 3
+        */
+        //fetch GeoJSON file
+        fetch("duluth_points_of_interest.json")
+            // once we fetch the geojson we need to convert then response into a json format
+            .then(function (response) {
+                return response.json()
+            })
+            // take the json data (our geojson's file data)
+            // and create a leaflet layer based on that geojson (Adds it to the map)
+            .then(function(geojsonData) {
+                console.log('the geojson data', geojsonData);
+                L.geoJSON(geojsonData, {
+                    style: function(feature) {
+                        return {
+                            color: "black", // border color
+                            weight: 1,      // border thickness
+                            opacity: 1,     // border opacity
+                        };
+                    },  
+                    // Takes the attributes from the json and shows them in the popup
+                    // This is how every POI gets its popup content
+                    onEachFeature: function(feature, layer) {
+                        layer.bindPopup( 
+                            "<div class = 'popup-styling'>" +
+                            "<div class = 'popup-title'> Duluth Attraction: <b>" + feature.properties.Attraction + "</b></div><br>" +
+                            "<b>Description: </b>" + feature.properties.Description + "<br>" +
+                            "<b>Website: </b>" + feature.properties.Website + "<br>" +
+                            "<b>Address: </b>" + feature.properties.Address + "<br>" +
+                            "<b>Image: </b><img src='" + feature.properties.Photo_URL + "' alt='Image' style='max-width:200px;' />",
+                            "</div>",
+                        );
+                    }
+                }).addTo(map); 
+            });
     </script>
 </body>
 </html>
