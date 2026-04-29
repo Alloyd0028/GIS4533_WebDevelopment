@@ -26,21 +26,36 @@
             width: 100%;
             height: 100%;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            justify-content: flex-start;
+            text-align: center;
         }
         #map{
-            width: 750px;
-            height: 500px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            width: 1000px;
+            height: 750px;
             border: 1px solid black;
+        }
+        .title{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 30px;
+            display: flex;
+            justify-content: top;
+            align-items: top;
+        }
+        .popup-title{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
+        }
+        .popup-styling{
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 14px;
         }
 
     </style>
 </head>
 <body>
+    <h1 class="title">Duluth Points of Interest</h1>
 
 
     <div id="map"></div>
@@ -86,9 +101,11 @@
                             "<div class = 'popup-styling'>" +
                             "<div class = 'popup-title'> Duluth Attraction: <b>" + feature.properties.Attraction + "</b></div><br>" +
                             "<b>Description: </b>" + feature.properties.Description + "<br>" +
-                            "<b>Website: </b>" + feature.properties.Website + "<br>" +
+                            // This links the pop-up website link text to the actual website
+                            "<b>Website: </b><a href ='" + feature.properties.Website + "' target='_blank'>" + feature.properties.Website + "</a><br>" +
                             "<b>Address: </b>" + feature.properties.Address + "<br>" +
-                            "<b>Image: </b><img src='" + feature.properties.Photo_URL + "' alt='Image' style='max-width:200px;' />",
+                            // This makes the image show up in the pop-up, as well as giving it a max width & height so it doesn't mess up the pop-up's size
+                            "<b>Image: </b> <br><img src='" + feature.properties.Photo_URL + "' alt='Image' style='max-width:200px; max-height:200px;' />",
                             "</div>",
                         );
                     }
