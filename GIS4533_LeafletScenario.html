@@ -75,8 +75,8 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     
     <script>
-        // Initialize the map, center it on UMD campus, and set the zoom level
-        const map = L.map('map').setView([46.82, -92.08], 13);
+        // Initialize the map, Centers map on Duluth so all points are visible
+        const map = L.map('map').setView([46.76, -92.15], 11);
 
         // Add OpenStreetMap tiles
         var Stadia_AlidadeSatellite = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}{r}.{ext}?api_key=41db2904-39a2-49ee-a885-c295cf4c2cd6', {
@@ -85,12 +85,6 @@
 	    attribution: '&copy; CNES, Distribution Airbus DS, © Airbus DS, © PlanetObserver (Contains Copernicus Data) | &copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 	    ext: 'jpg'
         }).addTo(map);
-        /*
-        const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        }).addTo(map);
-        */
 
         /*
         Essentially a copy/paste of Step 2 from Assigment 3
@@ -109,7 +103,7 @@
                     style: function(feature) {
                         return {
                             color: "black", // border color
-                            weight: 1,      // border thickness
+                            weight: 5,      // border thickness
                             opacity: 1,     // border opacity
                         };
                     },  
