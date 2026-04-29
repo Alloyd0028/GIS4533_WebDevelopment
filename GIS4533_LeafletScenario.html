@@ -87,46 +87,109 @@
         }).addTo(map);
 
         // Below are different icons for different points
+        // All icons were found online
+        const defaultIcon = L.icon({
+            iconUrl: 'https://cdn-icons-png.flaticon.com/512/252/252025.png',
+            iconSize: [32, 37],
+            iconAnchor: [16, 37],
+            popupAnchor: [0, -37]
+        });
         const canalIcon = L.icon({
-            iconUrl: "",
-            iconSize:[],
+            iconUrl: 'https://cdn-icons-png.flaticon.com/512/569/569664.png',
+            iconSize:[32, 37],
+            iconAnchor: [16, 37],
+            popupAnchor: [0, -37]
         });
         const liftBridgeIcon = L.icon({
-            iconUrl: "",
-            iconSize:[],
+            iconUrl: 'https://cdn-icons-png.flaticon.com/512/149/149729.png',
+            iconSize:[32, 37],
+            iconAnchor: [16, 37],
+            popupAnchor: [0, -37]
         });
         const spiritIcon = L.icon({
-            iconUrl: "",
-            iconSize:[],
+            iconUrl: 'https://cdn-icons-png.flaticon.com/512/252/252028.png',
+            iconSize:[32, 37],
+            iconAnchor: [16, 37],
+            popupAnchor: [0, -37]
         });
         const glensheenIcon = L.icon({
-            iconUrl: "",
-            iconSize:[],
+            iconUrl: 'https://cdn-icons-png.flaticon.com/512/149/149388.png',
+            iconSize:[32, 37],
+            iconAnchor: [16, 37],
+            popupAnchor: [0, -37]
         });
         const aquariumIcon = L.icon({
-            iconUrl: "",
-            iconSize:[],
+            iconUrl: 'https://cdn-icons-png.flaticon.com/512/3270/3270446.png',
+            iconSize:[32, 37],
+            iconAnchor: [16, 37],
+            popupAnchor: [0, -37]
         });
         const jayCookeIcon = L.icon({
-            iconUrl: "",
-            iconSize:[],
+            iconUrl: "https://thumbs.dreamstime.com/b/parkland-location-map-pointer-tree-icon-pin-black-symbol-isolated-white-background-vector-marker-single-garden-park-255829163.jpg",
+            iconSize:[32, 37],
+            iconAnchor: [16, 37],
+            popupAnchor: [0, -37]
         });
         const railroadIcon = L.icon({
-            iconUrl: "",
-            iconSize:[],
+            iconUrl: 'https://cdn-icons-png.flaticon.com/512/854/854878.png',
+            iconSize:[32, 37],
+            iconAnchor: [16, 37],
+            popupAnchor: [0, -37]
         });
         const engerIcon = L.icon({
-            iconUrl: "",
-            iconSize:[],
+            iconUrl: 'https://cdn-icons-png.flaticon.com/512/2965/2965270.png',
+            iconSize:[32, 37],
+            iconAnchor: [16, 37],
+            popupAnchor: [0, -37]
         });
         const zooIcon = L.icon({
-            iconUrl: "",
-            iconSize:[],
+            iconUrl: 'https://cdn-icons-png.flaticon.com/512/616/616430.png',
+            iconSize:[32, 37],
+            iconAnchor: [16, 37],
+            popupAnchor: [0, -37]
         });
         const parkIcon = L.icon({
-            iconUrl: "",
-            iconSize:[],
+            iconUrl: 'https://cdn-icons-png.flaticon.com/512/427/427735.png',
+            iconSize:[32, 37],
+            iconAnchor: [16, 37],
+            popupAnchor: [0, -37]
         });
+
+        //This is where the icons get connected to the points
+        function getThemeIcon(feature){
+            var name = (feature.properties.Attraction || '').trim();
+            if(name === "Canal Park") {
+                return canalIcon;
+            }
+            if(name === "Aerial Lift Bridge") {
+                return liftBridgeIcon;
+            }
+            if(name === "Spirit Mountain Recreation Area") {
+                return spiritIcon;
+            }
+            if(name === "Glensheen") {
+                return glensheenIcon;
+            }
+            if(name === "Great Lakes Aquarium") {
+                return aquariumIcon;
+            }
+            if(name === "Jay Cooke State Park") {
+                return jayCookeIcon;
+            }
+            if(name === "North Shore Scenic Railroad") {
+                return railroadIcon;
+            }
+            if(name === "Enger Park") {
+                return engerIcon;
+            }
+            if(name === "Lake Superior Zoo") {
+                return zooIcon;
+            }
+            if(name === "Park Point") {
+                return parkIcon;
+            }
+            return defaultIcon;
+        }
 
         /*
         Essentially a copy/paste of Step 2 from Assigment 3
@@ -164,6 +227,9 @@
                             "</div>",
                         );
                     }
+                    ,pointToLayer: function(feature, latlng) {
+                        return L.marker(latlng, { icon: getThemeIcon(feature) });
+                    },
                 }).addTo(map); 
             });
     </script>
