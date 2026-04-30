@@ -86,78 +86,72 @@
 	    ext: 'jpg'
         }).addTo(map);
 
-        // Below are different icons for different points
-        // All icons were found online
-        const defaultIcon = L.icon({
-            iconUrl: 'https://cdn-icons-png.flaticon.com/512/252/252025.png',
+        // Below are different colored div-based icons for different points
+        // Each one is done indepentently, but colors have significance
+        const canalIcon = L.icon({
+            iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png",
             iconSize: [32, 37],
             iconAnchor: [16, 37],
             popupAnchor: [0, -37]
         });
-        const canalIcon = L.icon({
-            iconUrl: 'https://cdn-icons-png.flaticon.com/512/569/569664.png',
-            iconSize:[32, 37],
-            iconAnchor: [16, 37],
-            popupAnchor: [0, -37]
-        });
         const liftBridgeIcon = L.icon({
-            iconUrl: 'https://cdn-icons-png.flaticon.com/512/149/149729.png',
-            iconSize:[32, 37],
+            iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-grey.png",
+            iconSize: [32, 37],
             iconAnchor: [16, 37],
             popupAnchor: [0, -37]
         });
         const spiritIcon = L.icon({
-            iconUrl: 'https://cdn-icons-png.flaticon.com/512/252/252028.png',
-            iconSize:[32, 37],
+            iconUrl: "",
+            iconSize: [32, 37],
             iconAnchor: [16, 37],
             popupAnchor: [0, -37]
         });
         const glensheenIcon = L.icon({
-            iconUrl: 'https://cdn-icons-png.flaticon.com/512/149/149388.png',
-            iconSize:[32, 37],
+            iconUrl: "",
+            iconSize: [32, 37],
             iconAnchor: [16, 37],
             popupAnchor: [0, -37]
         });
         const aquariumIcon = L.icon({
-            iconUrl: 'https://cdn-icons-png.flaticon.com/512/3270/3270446.png',
-            iconSize:[32, 37],
+            iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png",
+            iconSize: [32, 37],
             iconAnchor: [16, 37],
             popupAnchor: [0, -37]
         });
         const jayCookeIcon = L.icon({
-            iconUrl: "https://thumbs.dreamstime.com/b/parkland-location-map-pointer-tree-icon-pin-black-symbol-isolated-white-background-vector-marker-single-garden-park-255829163.jpg",
-            iconSize:[32, 37],
+
+            iconSize: [32, 37],
             iconAnchor: [16, 37],
             popupAnchor: [0, -37]
         });
         const railroadIcon = L.icon({
-            iconUrl: 'https://cdn-icons-png.flaticon.com/512/854/854878.png',
-            iconSize:[32, 37],
+
+            iconSize: [32, 37],
             iconAnchor: [16, 37],
             popupAnchor: [0, -37]
         });
         const engerIcon = L.icon({
-            iconUrl: 'https://cdn-icons-png.flaticon.com/512/2965/2965270.png',
-            iconSize:[32, 37],
+
+            iconSize: [32, 37],
             iconAnchor: [16, 37],
             popupAnchor: [0, -37]
         });
         const zooIcon = L.icon({
-            iconUrl: 'https://cdn-icons-png.flaticon.com/512/616/616430.png',
-            iconSize:[32, 37],
+
+            iconSize: [32, 37],
             iconAnchor: [16, 37],
             popupAnchor: [0, -37]
         });
         const parkIcon = L.icon({
-            iconUrl: 'https://cdn-icons-png.flaticon.com/512/427/427735.png',
-            iconSize:[32, 37],
+
+            iconSize: [32, 37],
             iconAnchor: [16, 37],
             popupAnchor: [0, -37]
         });
 
         //This is where the icons get connected to the points
         function getThemeIcon(feature){
-            var name = (feature.properties.Attraction || '').trim();
+            var name = (feature.properties.Attraction);
             if(name === "Canal Park") {
                 return canalIcon;
             }
@@ -188,7 +182,6 @@
             if(name === "Park Point") {
                 return parkIcon;
             }
-            return defaultIcon;
         }
 
         /*
@@ -226,10 +219,12 @@
                             "<b>Image: </b> <br><img src='" + feature.properties.Photo_URL + "' alt='Image' style='max-width:200px; max-height:200px;' />",
                             "</div>",
                         );
-                    }
-                    ,pointToLayer: function(feature, latlng) {
+                    },
+    
+                    pointToLayer: function(feature, latlng) {
                         return L.marker(latlng, { icon: getThemeIcon(feature) });
                     },
+                    
                 }).addTo(map); 
             });
     </script>
