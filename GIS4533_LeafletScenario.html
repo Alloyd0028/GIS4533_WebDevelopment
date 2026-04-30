@@ -1,22 +1,22 @@
 <!-- 
     PLAN FOR LEAFLET SCENARIO:
     - X Have title centered at top
-    - Followed by a paragraph describing the map and how to use it
-    - Then the expertly designed map:
-        - Custom popups
-            - Custom Locators
+    - X Followed by a paragraph describing the map and how to use it
+    - X Then the expertly designed map:
+        - X Custom popups
+            - X Custom Locators
             - X Custom popup content
         - X Centered on Duluth
         - X Good Basemap
-        - Located below paragraph and title
-        - Symbolized effectively and neatly
+        - X Located below paragraph and title
+        - X Symbolized effectively and neatly
 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Most Basic Web Map</title>
+    <title>Duluth Points of Interest</title>
     
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -30,11 +30,16 @@
             align-items: center;
             justify-content: flex-start;
             text-align: center;
+            /* Background image of Duluth*/
+            background-image: linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0.5)), /* I learned what the 'a' in rgba means!*/
+                    url('https://media.istockphoto.com/id/693911352/photo/duluth-minnesota-downtown-city-skyline-port-city-lake-superior.jpg?s=612x612&w=0&k=20&c=jRsUTo5dOXm5xPXw_PPAdS_W0wvmIrlEmSTfrCA2iLA=');
+            background-size: cover;
+            background-position: right;
         }
         #map{
-            width: 1000px;
+            width: 1200px;
             height: 750px;
-            border: 1px solid black;
+            border: 3px solid black;
         }
         .title{
             font-family: Arial, Helvetica, sans-serif;
@@ -45,7 +50,7 @@
         }
         .text{
             font-family:'Times New Roman', Times, serif;
-            font-size: 12px;
+            font-size: 14px;
         }
         .popup-title{
             font-family: Arial, Helvetica, sans-serif;
@@ -54,6 +59,10 @@
         .popup-styling{
             font-family: 'Times New Roman', Times, serif;
             font-size: 14px;
+        }
+        .list{/* This aligns the list items to the left near their bullet points */
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: left;
         }
 
     </style>
@@ -65,7 +74,15 @@
 
     <div class="text">
         <p> Hello! Welcome to the Zenith City, Duluth, MN!</p>
-
+        <p> Below is a map of Duluth, Minnesota, containing several points of interest.</p>
+        <p> These points are marked accordingly to the type of location they are:</p>
+        <ul class ="list">
+            <li><b style=color:red>Red </b>markers represents Historical/Landmark points, </li>
+            <li><b style="color:green">Green </b>markers represents Natural, Outdoor areas</li>
+            <li><b style="color: blue">Blue </b>markers represents Aquatic areas</li>
+            <li><b style="color: yellow">Yellow </b>markers represents Fun, Lively areas</li>
+        </ul>
+        <p style="font-family:Georgia, 'Times New Roman', Times, serif;font-size: 14px; margin: 0px;">Feel free to navigate the map below and to click on the points for more information!</p>
 
     </div>
 
@@ -76,7 +93,7 @@
     
     <script>
         // Initialize the map, Centers map on Duluth so all points are visible
-        const map = L.map('map').setView([46.76, -92.15], 11);
+        const map = L.map('map').setView([46.741, -92.185], 12);
 
         // Add OpenStreetMap tiles
         var Stadia_AlidadeSatellite = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}{r}.{ext}?api_key=41db2904-39a2-49ee-a885-c295cf4c2cd6', {
@@ -156,7 +173,8 @@
             popupAnchor: [0, -37]
         });
 
-        //This is where the icons get connected to the points
+        //This is where the icons get connected to the points by name. 
+        //If the name doesn't match, it won't get connected to the icon
         function getThemeIcon(feature){
             var name = (feature.properties.Attraction);
             if(name === "Canal Park") {
@@ -227,7 +245,8 @@
                             "</div>",
                         );
                     },
-    
+                    // This is where the icons get connected to the points.
+                    // Uses the function getThemeIcon from above
                     pointToLayer: function(feature, latlng) {
                         return L.marker(latlng, { icon: getThemeIcon(feature) });
                     },
